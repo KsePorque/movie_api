@@ -28,6 +28,7 @@ class Dev(Configuration):
 
     OMDB_KEY = "577e8ba8"
 
+
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
 
@@ -163,6 +164,10 @@ class Dev(Configuration):
 
     DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+    # Celery configs
     CELERY_RESULT_BACKEND = "django-db"
     CELERY_BROKER_URL = "redis://localhost:6379/0"
+
+    # email backend configs    
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    ADMINS = [("TestAdmin", "test@test.ru")]
